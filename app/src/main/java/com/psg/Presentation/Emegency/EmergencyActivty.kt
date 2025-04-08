@@ -9,6 +9,7 @@ import com.psg.Presentation.Util.PermissionHelper
 import com.psg.R
 import com.psg.databinding.ActivityEmergencyActivtyBinding
 import android.Manifest
+import android.os.Build
 import android.widget.Toast
 import com.psg.Presentation.Util.PreferenceHelper
 
@@ -29,33 +30,37 @@ class EmergencyActivty : AppCompatActivity() {
             insets
         }
 
-        initview()
         requestPermissions()
-        Onclick()
-
+        setupUI()
     }
+
 
 
     private fun requestPermissions() {
-        val permissions = arrayOf(
+        val permissions = mutableListOf(
             Manifest.permission.RECEIVE_SMS,
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_BACKGROUND_LOCATION,
-            Manifest.permission.MODIFY_AUDIO_SETTINGS
+            Manifest.permission.MODIFY_AUDIO_SETTINGS,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.SEND_SMS
         )
 
-        PermissionHelper.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            permissions.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            permissions.add(Manifest.permission.POST_NOTIFICATIONS)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            permissions.add(Manifest.permission.FOREGROUND_SERVICE)
+        }
+
+        PermissionHelper.requestPermissions(this, permissions.toTypedArray(), PERMISSION_REQUEST_CODE)
     }
 
-
-
-
-    private fun initview() {
-
-
-    }
-
-    private fun Onclick() {
+    private fun setupUI() {
         val savedTrigger = PreferenceHelper.getTriggerWord(this)
         binding.triggerWordEditText.setText(savedTrigger)
 
@@ -64,7 +69,6 @@ class EmergencyActivty : AppCompatActivity() {
             PreferenceHelper.setTriggerWord(this, triggerWord)
             Toast.makeText(this, "Trigger word saved", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     override fun onRequestPermissionsResult(
