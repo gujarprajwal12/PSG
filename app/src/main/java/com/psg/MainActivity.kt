@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.psg.Presentation.AllOption.Adpater.ItemAdapter
 import com.psg.Presentation.AllOption.Item
-import com.psg.Presentation.MaterialDesign.MaterialButtonScrren
-import com.psg.Presentation.MaterialDesign.MaterialDesginTextScrren
+import com.psg.Presentation.Emegency.EmergencyActivty
+import com.psg.Presentation.Palour.Presentation.ContactMeScrren
 import com.psg.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -46,15 +46,15 @@ class MainActivity : AppCompatActivity() {
 
         val items = listOf(
             Item( 1,"LifeCycle", "Description 1"),
-            Item( 2,"Material Button", "Description 2"),
-            Item(3,"Material Text", "Description 3")
+            Item( 2,"Palour", "Description 2"),
+            Item(3,"other", "Description 3")
         )
 
         itemAdapter = ItemAdapter(items) { item ->
             when (item.id) {
                 1 -> openLifeCycleFunction()
-                2 -> openMaterialButtonFunction()
-                3 -> openMaterialTextFunction()
+                2 -> openPalour()
+                3 -> openOther()
                 else -> Toast.makeText(this, "Unknown Item Clicked", Toast.LENGTH_SHORT).show()
             }
         }
@@ -68,15 +68,15 @@ class MainActivity : AppCompatActivity() {
 
 
 
-private fun MainActivity.openMaterialTextFunction() {
-  val MaterailText = Intent(this@MainActivity , MaterialDesginTextScrren::class.java)
-    startActivity(MaterailText)
+private fun MainActivity.openPalour() {
+    val MaterialButton  = Intent(this@MainActivity , ContactMeScrren::class.java)
+    startActivity(MaterialButton)
 }
 
-private fun MainActivity.openMaterialButtonFunction() {
+private fun MainActivity.openOther() {
 
-    val MaterialButton  = Intent(this@MainActivity , MaterialButtonScrren::class.java)
-    startActivity(MaterialButton)
+   val EmergencyActivty = Intent(this@MainActivity , EmergencyActivty::class.java)
+    startActivity(EmergencyActivty)
 
 }
 
