@@ -9,6 +9,10 @@
     android:layout_margin="10dp"
     tools:context=".Presentation.Emegency.EmergencyActivty">
 
+    <include
+        android:id="@+id/toolbar_default"
+        layout="@layout/toolbar_default"
+        />
 
     <EditText
         android:id="@+id/triggerWordEditText"

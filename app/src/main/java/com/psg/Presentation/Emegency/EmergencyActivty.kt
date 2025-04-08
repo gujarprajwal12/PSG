@@ -10,6 +10,8 @@ import com.psg.R
 import com.psg.databinding.ActivityEmergencyActivtyBinding
 import android.Manifest
 import android.widget.Toast
+import android.widget.Toolbar
+import com.google.android.material.appbar.MaterialToolbar
 import com.psg.Presentation.Util.PreferenceHelper
 
 
@@ -17,6 +19,7 @@ class EmergencyActivty : AppCompatActivity() {
 
   private  lateinit var binding: ActivityEmergencyActivtyBinding
     private val PERMISSION_REQUEST_CODE = 100
+    lateinit var  topAppBar: MaterialToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,10 +55,18 @@ class EmergencyActivty : AppCompatActivity() {
 
     private fun initview() {
 
+        topAppBar =  binding.toolbarDefault.toolbarDefault
+        setSupportActionBar(topAppBar)
 
     }
 
     private fun Onclick() {
+
+
+        binding.toolbarDefault.toolbarDefault.setNavigationOnClickListener {
+
+            onBackPressed()
+        }
         val savedTrigger = PreferenceHelper.getTriggerWord(this)
         binding.triggerWordEditText.setText(savedTrigger)
 

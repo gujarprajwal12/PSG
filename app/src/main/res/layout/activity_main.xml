@@ -8,6 +8,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbarmenu"
+       />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alloptionrecycerlview"
         android:layout_width="match_parent"

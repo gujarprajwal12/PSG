@@ -54,6 +54,27 @@ dependencies {
 
     implementation ("com.google.android.gms:play-services-location:21.0.1")
 
+    //room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+
+
+    // Coroutines
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp.logging)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    // Coil (Image Loading)
+    implementation(libs.coil)
+
+    implementation(libs.timber)
+
 
 
 }

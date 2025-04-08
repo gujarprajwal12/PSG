@@ -10,10 +10,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.MaterialToolbar
 import com.psg.Presentation.AllOption.Adpater.ItemAdapter
 import com.psg.Presentation.AllOption.Item
 import com.psg.Presentation.Emegency.EmergencyActivty
 import com.psg.Presentation.Palour.Presentation.ContactMeScrren
+import com.psg.Presentation.Util.SnackbarUtil
 import com.psg.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var itemAdapter: ItemAdapter
     private val TAG = "ActivityLifecycle"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +40,29 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate Called")
 
 
+         InitView()
          Alloption()
 
+    }
+
+    private fun InitView() {
+
+        binding.toolbar.toolbarDefault.setTitle("Main Screen")
+
+        binding.toolbar.toolbarDefault.setOnMenuItemClickListener{ menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_Contact -> {
+                    val intent = Intent(this@MainActivity , ContactMeScrren::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.menu_help -> {
+                    SnackbarUtil.showShort(binding.root , "In Progress..")
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun Alloption() {
