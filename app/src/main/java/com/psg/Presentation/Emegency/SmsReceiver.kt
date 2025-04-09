@@ -16,11 +16,16 @@ class SMSReceiver : BroadcastReceiver() {
             for (pdu in pdus) {
                 val message = SmsMessage.createFromPdu(pdu as ByteArray, bundle.getString("format"))
                 val body = message.messageBody
+                val sms = SmsMessage.createFromPdu(pdu as ByteArray)
+                val sender = sms.originatingAddress
                 val trigger = PreferenceHelper.getTriggerWord(context)
                 if (body.contains(trigger, true)) {
                     val serviceIntent = Intent(context, EmergencyService::class.java)
+                    serviceIntent.putExtra("sender" , sender?:"")
                     ContextCompat.startForegroundService(context, serviceIntent)
                 }
+
+
             }
         }
     }
