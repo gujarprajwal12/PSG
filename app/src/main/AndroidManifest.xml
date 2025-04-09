@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PSG"
+        android:theme="@style/Base.Theme.PSG"
         tools:targetApi="31">
         <activity
             android:name=".Presentation.Emegency.EmergencyActivty"
@@ -40,12 +40,12 @@
         </activity>
 
 
-        <receiver android:name=".Presentation.Emegency.SmsReceiver" android:exported="true"
-            android:permission="android.permission.BROADCAST_SMS">
-            <intent-filter android:priority="999">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+        <receiver android:name=".Presentation.Emegency.SMSReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
 
         <service android:name=".Presentation.Emegency.EmergencyService"
             android:exported="false"

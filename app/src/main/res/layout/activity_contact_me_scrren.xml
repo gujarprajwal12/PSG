@@ -49,30 +49,21 @@
         android:id="@+id/salonAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Dhangra Galli , Shevgaon , Mahashtra India"
         android:textSize="16sp"
         android:textColor="@android:color/darker_gray"
         android:paddingTop="5dp"/>
 
-    <!-- Call Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/callButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Call Us"
-        style="@style/CustomMaterialButton"
-        android:onClick="makeCall"/>
 
-    <!-- Email Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/emailButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email Us"
-        style="@style/CustomMaterialButton"
-        android:onClick="sendEmail"/>
 
-    <!-- Social Media Links -->
+
+        <Button
+            android:id="@+id/btndirection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="direaction"
+            />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,27 +72,53 @@
 
         <ImageButton
             android:id="@+id/instagramButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/baseline_account_circle_24"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:contentDescription="Instagram"
+            android:src="@drawable/instagram"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:onClick="openInstagram"/>
 
         <ImageButton
             android:id="@+id/facebookButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/baseline_account_circle_24"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:contentDescription="Facebook"
+            android:src="@drawable/fb"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:onClick="openFacebook"/>
 
         <ImageButton
             android:id="@+id/whatsappButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/baseline_account_circle_24"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:contentDescription="Whatsapp"
+            android:src="@drawable/whatsappsvg"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:onClick="openWhatsApp"/>
+
+        <ImageButton
+            android:id="@+id/CallButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:contentDescription="Call"
+            android:src="@drawable/baseline_add_call_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="openCall"/>
+
+        <ImageButton
+            android:id="@+id/LoactionButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:contentDescription="Find Me"
+            android:src="@drawable/baseline_add_location_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="openCall"/>
     </LinearLayout>
     </LinearLayout>
 </LinearLayout>
