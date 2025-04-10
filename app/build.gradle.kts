@@ -19,7 +19,14 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            buildConfigField("String" , "BASE_URL" , "\"https://api.openweathermap.org/data/2.5/\"")
+        }
+
+
         release {
+            buildConfigField("String" , "BASE_URL" , "\"https://api.openweathermap.org/data/2.5/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

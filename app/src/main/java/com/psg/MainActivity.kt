@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var itemAdapter: ItemAdapter
     private val TAG = "ActivityLifecycle"
+    private    val apiKey = "9b36de759e6d947adc9d0f7aba64bdad"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
          InitView()
          Alloption()
+
 
     }
 
