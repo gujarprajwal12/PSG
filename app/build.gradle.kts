@@ -82,6 +82,10 @@ dependencies {
 
     implementation(libs.timber)
 
+    //koin
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation("io.insert-koin:koin-android:$4.0.3")
 
 
 }
